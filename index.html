@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПОЛКА — тест экрана 1</title>
+<style>
+  :root{
+    --teal:#3D8B8B;
+    --teal-dark:#2A6B6B;
+    --teal-arc-1:#4C9494;
+    --teal-arc-2:#67A4A4;
+    --teal-arc-3:#74BEBB;
+    --card-dark-1:#365353;
+    --card-dark-2:#25403f;
+    --gold:#F3D278;
+    --gold-2:#E3C77A;
+    --ink:#1a2323;
+    --muted:#5b6b6a;
+    --paper:#ffffff;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:'Cambria', Georgia, 'Times New Roman', serif;
+    font-weight:700;
+    color:var(--ink);
+    background:#fff;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{ max-width:1360px; margin:0 auto; padding:0 48px; }
+  @media (max-width:640px){ .wrap{ padding:0 24px; } }
+  a{ color:inherit; text-decoration:none; }
+
+  /* ================= SLIDE 1 — HERO ================= */
+  .hero{
+    position:relative;
+    background:radial-gradient(120% 140% at 30% 20%, #46999a 0%, var(--teal) 45%, #326f6f 100%);
+    overflow:hidden;
+    padding-top:56px;
+  }
+  .hero-arcs{
+    position:absolute; top:0; right:0;
+    width:min(52vw, 700px); height:min(52vw, 700px);
+    pointer-events:none;
+    opacity:0.55;
+    will-change:transform;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    padding-bottom:64px;
+  }
+  .eyebrow-row{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    margin-bottom:40px;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,0.18));
+  }
+  .eyebrow{
+    font-size:15px;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    text-transform:uppercase;
+  }
+  .eyebrow-of{
+    font-size:15px;
+    color:rgba(255,255,255,0.75);
+    font-weight:400;
+    font-style:italic;
+  }
+  .logo-btn{
+    display:inline-block;
+    border-radius:36px;
+    overflow:hidden;
+    line-height:0;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 10px 24px -10px rgba(0,0,0,0.35);
+  }
+  .logo-btn:hover{
+    transform:translateY(-2px) scale(1.015);
+    animation:logo-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes logo-pulse{
+    0%, 100%{ box-shadow:0 14px 26px -10px rgba(0,0,0,0.4), 0 0 0 0 rgba(243,210,120,0.35); }
+    50%{ box-shadow:0 20px 34px -10px rgba(0,0,0,0.5), 0 0 0 10px rgba(243,210,120,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .logo-btn:hover{ animation:none; box-shadow:0 16px 30px -10px rgba(0,0,0,0.45); }
+  }
+  .logo-btn:focus-visible{ outline:3px solid #fff; outline-offset:3px; }
+  .logo-btn img{ display:block; height:64px; width:auto; }
+
+  h1.headline{
+    color:#fff;
+    font-size:clamp(30px, 4.4vw, 52px);
+    line-height:1.14;
+    max-width:30ch;
+    margin-bottom:26px;
+  }
+  .hero-sub{
+    color:var(--gold);
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(19px, 1.92vw, 22.8px);
+    line-height:1.5;
+    max-width:44ch;
+  }
+  .hero-tag{
+    background:var(--teal-dark);
+    padding:28px 0;
+    position:relative; z-index:2;
+  }
+  .hero-tag .wrap{ display:flex; align-items:center; }
+  .contact-email{
+    color:var(--gold);
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:24px;
+    letter-spacing:0.02em;
+  }
+  .contact-email:hover{ color:#fff; }
+
+  /* ================= SLIDE 2 — AUTHOR ================= */
+  .author-band{
+    background:var(--teal);
+    padding:44px 0;
+  }
+  .author-kicker{
+    color:var(--gold);
+    font-size:14px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .author-band h2{
+    color:#fff;
+    font-size:clamp(28px, 3.6vw, 44px);
+    line-height:1.1;
+  }
+
+  .author-body{
+    background:#fff;
+    padding:64px 0 88px;
+  }
+  .author-grid{
+    display:grid;
+    grid-template-columns: 0.68fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:860px){ .author-grid{ grid-template-columns:1fr; } }
+
+  .author-card{
+    background:var(--teal);
+    border-radius:16px;
+    padding:40px 36px;
+    color:#fff;
+    box-shadow:
+      0 24px 48px -20px rgba(42,107,107,0.55),
+      0 8px 16px -8px rgba(0,0,0,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .author-role{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:15px;
+    color:rgba(255,255,255,0.72);
+    margin-bottom:28px;
+    line-height:1.4;
+  }
+  .author-role b{ color:#fff; font-family:'Cambria', Georgia, serif; font-weight:700; font-size:22.5px; }
+  .author-divider{
+    height:4px; width:100%;
+    border-radius:4px;
+    background:linear-gradient(90deg, var(--gold), var(--gold-2));
+    margin-bottom:28px;
+    opacity:0.85;
+  }
+  .fact-list{ list-style:none; display:flex; flex-direction:column; gap:22px; }
+  .fact-item{ display:flex; align-items:center; gap:16px; font-size:16px; }
+  .fact-dot{
+    width:14px; height:14px; min-width:14px;
+    border-radius:50%;
+    background:var(--gold);
+    box-shadow:0 0 0 5px rgba(243,210,120,0.22), 0 0 10px 1px rgba(243,210,120,0.5);
+  }
+
+  .author-text{ padding-top:6px; }
+  .author-text p{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:17px;
+    line-height:1.65;
+    color:var(--ink);
+    margin-bottom:24px;
+    max-width:58ch;
+  }
+  .author-text p.highlight{
+    color:var(--teal-dark);
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:18px;
+  }
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="hero-arcs" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="700" cy="350" r="520" fill="none" stroke="var(--teal-arc-1)" stroke-width="60"/>
+    <circle cx="700" cy="350" r="380" fill="none" stroke="var(--teal-arc-2)" stroke-width="55"/>
+    <circle cx="700" cy="350" r="250" fill="none" stroke="var(--teal-arc-3)" stroke-width="48"/>
+  </svg>
+
+  <div class="hero-inner wrap">
+    <div class="eyebrow-row">
+      <span class="eyebrow">Проект ПОЛКА</span>
+      <span class="eyebrow-of">от</span>
+      <a class="logo-btn" href="#contact" aria-label="Перейти к форме обратной связи — Human to Human Marketing Agency">
+        <img src="images/logo-human-to-human.png" alt="Human to Human Marketing Agency">
+      </a>
+    </div>
+
+    <h1 class="headline">Хотите больше гарантий для бизнеса?<br>Пора перестать зависеть от маркетплейсов!</h1>
+    <p class="hero-sub">Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом</p>
+  </div>
+
+  <div class="hero-tag">
+    <div class="wrap">
+      <a class="contact-email" href="mailto:n_uglova@mail.ru">n_uglova@mail.ru</a>
+    </div>
+  </div>
+</section>
+
+<section class="author-band">
+  <div class="wrap">
+    <div class="author-kicker">Автор методики</div>
+    <h2>Наталья Углова</h2>
+  </div>
+</section>
+
+<section class="author-body">
+  <div class="wrap author-grid">
+    <div class="author-card">
+      <div class="author-role"><b>Основательница</b><br>Human to Human Marketing Agency</div>
+      <div class="author-divider"></div>
+      <ul class="fact-list">
+        <li class="fact-item"><span class="fact-dot"></span>20 лет в ритейле</li>
+        <li class="fact-item"><span class="fact-dot"></span>Работа с сетями и байерами</li>
+        <li class="fact-item"><span class="fact-dot"></span>Директор по маркетингу</li>
+        <li class="fact-item"><span class="fact-dot"></span>5+ отделов с нуля</li>
+      </ul>
+    </div>
+    <div class="author-text">
+      <p>Высококвалифицированный специалист по работе с ритейлом с опытом во всех элементах торговых цепочек — от производителя до торговой сети. Директор по маркетингу в компании ЛИДЕРЕ рынка, а значит человек, который досконально знает особенности продажи товара на каждом этапе.</p>
+      <p class="highlight">Я помогу вам подключить разные каналы сбыта — вы снизите зависимость от маркетплейсов и создадите устойчивую качественную дистрибуцию, которая будет работать на вас.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Временный якорь: сюда позже встанет форма обратной связи -->
+<div id="contact"></div>
+
+<script>
+  (function(){
+    var arcs = document.querySelector('.hero-arcs');
+    if(!arcs) return;
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
+    var ticking = false;
+    function update(){
+      var y = window.scrollY || 0;
+      arcs.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(update); ticking = true; }
+    }, { passive:true });
+  })();
+</script>
+
+</body>
+</html>
