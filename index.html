@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ПОЛКА — выход в офлайн-ритейл</title>
+<title>ПОЛКА — экраны 1–2</title>
 <style>
   :root{
     --teal:#3D8B8B;
@@ -15,16 +15,19 @@
     --card-dark-2:#25403f;
     --gold:#F3D278;
     --gold-2:#E3C77A;
+    --amber:#F59E0B;
+    --amber-2:#F4B942;
     --ink:#1a2323;
     --muted:#5b6b6a;
     --paper:#ffffff;
+    --mint:#F4F9F9;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{
     font-family:'Cambria', Georgia, 'Times New Roman', serif;
     font-weight:700;
     color:var(--ink);
-    background:#fff;
+    background:var(--mint);
     -webkit-font-smoothing:antialiased;
   }
   .wrap{ max-width:1360px; margin:0 auto; padding:0 48px; }
@@ -201,6 +204,156 @@
     font-size:18px;
   }
 
+  /* ================= SLIDE 3 — PAINS ================= */
+  .band{
+    background:var(--teal);
+    padding:52px 0;
+  }
+  .band h2{
+    color:#fff;
+    font-size:clamp(26px, 3.6vw, 42px);
+    line-height:1.15;
+  }
+
+  .pains{ padding:72px 0 88px; }
+  .pain-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+  @media (max-width:780px){ .pain-grid{ grid-template-columns:1fr; } }
+  .pain-card{
+    background:#fff;
+    border-radius:16px;
+    padding:28px 32px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    min-height:110px;
+    position:relative;
+    box-shadow:0 14px 30px -18px rgba(42,107,107,0.28), 0 4px 10px -6px rgba(0,0,0,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .pain-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.38), 0 8px 16px -8px rgba(0,0,0,0.1);
+  }
+  .pain-num{
+    position:absolute;
+    top:12px; right:18px;
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.05em;
+    color:rgba(42,107,107,0.28);
+  }
+  .pain-dot{
+    width:22px; height:22px; min-width:22px;
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 5px rgba(245,158,11,0.16);
+  }
+  .pain-card p{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(15px, 1.15vw, 18px);
+    line-height:1.4;
+    color:var(--ink);
+  }
+
+  /* ================= SLIDE 4 — CHANNELS ================= */
+  .channels{ padding:72px 0 88px; }
+  .ch-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+  }
+  @media (max-width:860px){ .ch-grid{ grid-template-columns:1fr; } }
+
+  .ch-card{
+    border-radius:16px;
+    padding:40px 40px 34px;
+  }
+  .ch-card.online{
+    background:#fff;
+    box-shadow:0 14px 30px -18px rgba(42,107,107,0.28), 0 4px 10px -6px rgba(0,0,0,0.06);
+  }
+  .ch-card.offline{
+    background:var(--teal);
+    box-shadow:0 20px 40px -20px rgba(42,107,107,0.45);
+  }
+  .ch-title{
+    font-size:clamp(19px, 1.9vw, 24px);
+    margin-bottom:26px;
+  }
+  .ch-card.online .ch-title{ color:var(--teal-dark); }
+  .ch-card.offline .ch-title{ color:#fff; }
+
+  .ch-list{ list-style:none; display:flex; flex-direction:column; gap:22px; }
+  .ch-item{ display:flex; align-items:flex-start; gap:16px; }
+  .ch-dot{
+    width:18px; height:18px; min-width:18px;
+    margin-top:4px;
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 0 4px rgba(245,158,11,0.18);
+  }
+  .ch-item-text{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(14px, 1.05vw, 17px);
+    line-height:1.45;
+  }
+  .ch-card.online .ch-item-text{ color:var(--ink); }
+  .ch-card.offline .ch-item-text{ color:rgba(255,255,255,0.92); }
+  .ch-item-text b{
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    display:block;
+    margin-bottom:2px;
+  }
+  .ch-card.online .ch-item-text b{ color:var(--teal-dark); }
+  .ch-card.offline .ch-item-text b{ color:#fff; }
+
+  /* ================= SLIDE 4 — CLOSING BANNER ================= */
+  .closing{ padding-bottom:96px; }
+  .closing-banner{
+    background:var(--amber-2);
+    border-radius:16px;
+    padding:36px 48px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:
+      0 20px 40px -22px rgba(244,185,66,0.6),
+      inset 0 1px 0 rgba(255,255,255,0.45);
+  }
+  .closing-banner::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:64px; height:64px;
+    border-top:3px solid rgba(58,44,5,0.35);
+    border-left:3px solid rgba(58,44,5,0.35);
+    border-radius:16px 0 0 0;
+  }
+  .closing-banner::after{
+    content:"";
+    position:absolute;
+    bottom:0; right:0;
+    width:64px; height:64px;
+    border-bottom:3px solid rgba(58,44,5,0.35);
+    border-right:3px solid rgba(58,44,5,0.35);
+    border-radius:0 0 16px 0;
+  }
+  .closing-banner p{
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:clamp(17px, 1.7vw, 24px);
+    line-height:1.4;
+    color:#3a2c05;
+    text-align:center;
+  }
+
 </style>
 </head>
 <body>
@@ -254,6 +407,56 @@
     <div class="author-text">
       <p>Высококвалифицированный специалист по работе с ритейлом с опытом во всех элементах торговых цепочек — от производителя до торговой сети. Директор по маркетингу в компании ЛИДЕРЕ рынка, а значит человек, который досконально знает особенности продажи товара на каждом этапе.</p>
       <p class="highlight">Я помогу вам подключить разные каналы сбыта — вы снизите зависимость от маркетплейсов и создадите устойчивую качественную дистрибуцию, которая будет работать на вас.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Вы узнаёте себя?</h2></div>
+</section>
+
+<section class="pains">
+  <div class="wrap pain-grid">
+    <div class="pain-card"><span class="pain-num">01</span><span class="pain-dot"></span><p>Товар лежит на чужом складе — и это риск</p></div>
+    <div class="pain-card"><span class="pain-num">02</span><span class="pain-dot"></span><p>Весь оборот зависит от одной площадки</p></div>
+    <div class="pain-card"><span class="pain-num">03</span><span class="pain-dot"></span><p>Байеры сетей говорят не на языке маркетплейса</p></div>
+    <div class="pain-card"><span class="pain-num">04</span><span class="pain-dot"></span><p>Комиссии и издержки МП растут быстрее прибыли</p></div>
+    <div class="pain-card"><span class="pain-num">05</span><span class="pain-dot"></span><p>Нет опыта и контактов для входа в сети</p></div>
+    <div class="pain-card"><span class="pain-num">06</span><span class="pain-dot"></span><p>Непонятно, с чего начать выход в офлайн</p></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Каналы сбыта: не только маркетплейс</h2></div>
+</section>
+
+<section class="channels">
+  <div class="wrap ch-grid">
+    <div class="ch-card online">
+      <div class="ch-title">Онлайн-каналы</div>
+      <ul class="ch-list">
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Маркетплейсы</b>тест новинок и оборачиваемость</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Свой интернет-магазин</b>бренды с высоким чеком</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Опт и B2B-платформы</b>сырьё и крупные партии</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Соцсети и мессенджеры</b>нишевые товары</span></li>
+      </ul>
+    </div>
+    <div class="ch-card offline">
+      <div class="ch-title">Офлайн-каналы</div>
+      <ul class="ch-list">
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Розничные сети</b>товары повседневного спроса</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Шоурумы и профильные точки</b>премиальные товары</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>HoReCa и локальная дистрибуция</b>продукты питания</span></li>
+        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Оптовые базы и дистрибьюторы</b>крупные объёмы</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <div class="closing-banner">
+      <p>Несколько каналов сбыта — это не усложнение, а грамотная стратегия, снижающая риски бизнеса</p>
     </div>
   </div>
 </section>
