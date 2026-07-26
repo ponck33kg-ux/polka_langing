@@ -746,6 +746,146 @@
   .price-card.mint .price-tag{ background:var(--amber); color:#fff; }
   .price-card.teal .price-tag{ background:var(--teal-dark); color:#fff; }
 
+  /* ================= SLIDE 10 — WHY US ================= */
+  .why{ padding:56px 0 72px; }
+  .why-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:24px;
+    position:relative;
+  }
+  @media (max-width:780px){ .why-grid{ grid-template-columns:1fr; } }
+  .why-grid::before,
+  .why-grid::after{
+    content:"";
+    position:absolute;
+    background:linear-gradient(to bottom, rgba(42,107,107,0.18), rgba(42,107,107,0.05));
+    box-shadow:0 1px 2px rgba(0,0,0,0.08);
+    z-index:0;
+    pointer-events:none;
+  }
+  .why-grid::before{
+    left:6%; right:6%; top:calc(50% - 1px); height:2px;
+    background:linear-gradient(to right, transparent, rgba(42,107,107,0.22) 20%, rgba(42,107,107,0.22) 80%, transparent);
+    box-shadow:0 2px 3px -1px rgba(0,0,0,0.06);
+  }
+  .why-grid::after{
+    top:6%; bottom:6%; left:calc(50% - 1px); width:2px;
+    background:linear-gradient(to bottom, transparent, rgba(42,107,107,0.22) 20%, rgba(42,107,107,0.22) 80%, transparent);
+  }
+  @media (max-width:780px){ .why-grid::before, .why-grid::after{ display:none; } }
+
+  .why-card{
+    background:#fff;
+    border-radius:16px;
+    padding:34px 32px;
+    display:flex;
+    gap:22px;
+    align-items:flex-start;
+    box-shadow:0 14px 26px -18px rgba(42,107,107,0.28), 0 4px 10px -6px rgba(0,0,0,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .why-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.38), 0 8px 16px -8px rgba(0,0,0,0.1);
+  }
+  .why-icon{
+    width:56px; height:56px; min-width:56px;
+    border-radius:50%;
+    background:var(--amber);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .why-icon svg{ width:28px; height:28px; }
+  .why-title{
+    font-size:clamp(18px, 1.6vw, 21px);
+    color:var(--teal-dark);
+    margin-bottom:10px;
+  }
+  .why-desc{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(14px, 1.05vw, 16px);
+    line-height:1.5;
+    color:var(--muted);
+  }
+
+  /* ================= SLIDE 11 — PROCESS TIMELINE ================= */
+  .process{ padding:64px 0 88px; }
+  .process-sub{
+    font-size:clamp(16px, 1.4vw, 20px);
+    color:var(--amber);
+    text-align:center;
+    margin-bottom:56px;
+  }
+  .timeline{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+  }
+  @media (max-width:780px){ .timeline{ grid-template-columns:repeat(2, 1fr); row-gap:48px; } }
+  @media (max-width:480px){ .timeline{ grid-template-columns:1fr; } }
+
+  .timeline-line{
+    position:absolute;
+    top:29px;
+    left:calc(12.5% + 0px);
+    right:calc(12.5% + 0px);
+    height:3px;
+    background:var(--amber);
+    z-index:0;
+    border-radius:2px;
+  }
+  @media (max-width:780px){ .timeline-line{ display:none; } }
+
+  .tl-step{ position:relative; z-index:1; text-align:center; }
+  .tl-num{
+    width:58px; height:58px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:#fff;
+    font-size:24px;
+    margin:0 auto;
+    position:relative;
+    box-shadow:0 8px 16px -8px rgba(0,0,0,0.3);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .tl-step:hover .tl-num{
+    transform:translateY(-6px) rotate(-8deg);
+    box-shadow:0 16px 28px -10px rgba(0,0,0,0.4);
+  }
+  .tl-num::after{
+    content:"";
+    position:absolute;
+    top:100%; left:50%;
+    width:2px; height:20px;
+    background:linear-gradient(to bottom, rgba(42,107,107,0.35), rgba(42,107,107,0.12));
+    transform:translateX(-50%);
+  }
+  .tl-step-1 .tl-num{ background:var(--teal-dark); }
+  .tl-step-2 .tl-num,
+  .tl-step-3 .tl-num,
+  .tl-step-4 .tl-num{ background:var(--amber); }
+
+  .tl-card{
+    background:var(--mint-2);
+    border-radius:14px;
+    padding:26px 22px;
+    margin-top:20px;
+  }
+  .tl-title{
+    font-size:clamp(17px, 1.5vw, 20px);
+    color:var(--teal-dark);
+    margin-bottom:12px;
+  }
+  .tl-desc{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(13px, 1vw, 15px);
+    line-height:1.45;
+    color:var(--muted);
+  }
+
 </style>
 </head>
 <body>
@@ -1096,6 +1236,102 @@
       <a class="price-tag" href="#contact">от 60 000 ₽/мес</a>
     </div>
 
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Почему ПОЛКА</h2></div>
+</section>
+
+<section class="why">
+  <div class="wrap why-grid">
+
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/></svg>
+      </div>
+      <div>
+        <div class="why-title">Опыт в рознице</div>
+        <p class="why-desc">Большой практический опыт работы с розничными сетями — знаем логику байеров изнутри.</p>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-5 4 4 7-8"/><path d="M15 8h4v4"/></svg>
+      </div>
+      <div>
+        <div class="why-title">От аудита до полки</div>
+        <p class="why-desc">Ведём проект от аудита до первой поставки, а не только до презентации.</p>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 19c0-2.3 1.5-4 3.5-4.3"/></svg>
+      </div>
+      <div>
+        <div class="why-title">Гибридная модель</div>
+        <p class="why-desc">Не предлагаем бросать маркетплейс — выстраиваем устойчивое сочетание онлайна и офлайна.</p>
+      </div>
+    </div>
+
+    <div class="why-card">
+      <div class="why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.5h6c0-1.1.4-1.9 1-2.5A6 6 0 0 0 12 3Z"/></svg>
+      </div>
+      <div>
+        <div class="why-title">Понимание обеих сторон</div>
+        <p class="why-desc">Понимаем разницу между продвижением на маркетплейсе и продажей в офлайн-канал.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Как проходит работа</h2></div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <p class="process-sub">Среднее время от первого контакта до старта работы — 3–5 дней</p>
+
+    <div class="timeline">
+      <div class="timeline-line"></div>
+
+      <div class="tl-step tl-step-1">
+        <div class="tl-num">1</div>
+        <div class="tl-card">
+          <div class="tl-title">Знакомство</div>
+          <p class="tl-desc">30–60 минут: рассказываете о товаре и целях, мы задаём вопросы</p>
+        </div>
+      </div>
+
+      <div class="tl-step tl-step-2">
+        <div class="tl-num">2</div>
+        <div class="tl-card">
+          <div class="tl-title">Аудит</div>
+          <p class="tl-desc">Разбираем юнит-экономику, упаковку и готовность к офлайну</p>
+        </div>
+      </div>
+
+      <div class="tl-step tl-step-3">
+        <div class="tl-num">3</div>
+        <div class="tl-card">
+          <div class="tl-title">Предложение</div>
+          <p class="tl-desc">Формируем план выхода и стоимость под ваш товар</p>
+        </div>
+      </div>
+
+      <div class="tl-step tl-step-4">
+        <div class="tl-num">4</div>
+        <div class="tl-card">
+          <div class="tl-title">Старт</div>
+          <p class="tl-desc">Подписываем договор и начинаем питчинг сетей</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
