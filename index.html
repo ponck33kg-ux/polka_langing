@@ -886,6 +886,185 @@
     color:var(--muted);
   }
 
+  /* ================= SLIDE 12 — FINAL CTA ================= */
+  .final{
+    position:relative;
+    overflow:hidden;
+    background:radial-gradient(120% 140% at 70% 20%, #46999a 0%, var(--teal) 45%, #326f6f 100%);
+    padding:80px 0 64px;
+    text-align:center;
+  }
+  .final-logo{
+    width:150px;
+    margin:0 auto 40px;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -16px rgba(0,0,0,0.4);
+  }
+  .final-logo img{ display:block; width:100%; height:auto; }
+  .final h2{
+    color:#fff;
+    font-size:clamp(26px, 3.6vw, 40px);
+    line-height:1.25;
+    max-width:20ch;
+    margin:0 auto 32px;
+  }
+  .final-email{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    color:var(--gold);
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(20px, 2vw, 28px);
+  }
+  .final-email svg{ width:26px; height:26px; }
+  .final-email:hover{ color:#fff; }
+
+  /* ================= SLIDE 13 — CONTACT FORM ================= */
+  .contact-section{ background:#fff; padding:72px 0 88px; }
+  .contact-head{ text-align:center; margin-bottom:40px; }
+  .contact-kicker{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+    margin-bottom:12px;
+  }
+  .contact-head h3{
+    font-size:clamp(22px, 2.6vw, 30px);
+    color:var(--teal-dark);
+  }
+  .contact-form{
+    max-width:560px;
+    margin:0 auto;
+    background:#F4F9F9;
+    border-radius:16px;
+    padding:36px 36px 32px;
+    box-shadow:0 14px 30px -18px rgba(42,107,107,0.25), 0 4px 10px -6px rgba(0,0,0,0.06);
+  }
+  .form-row{ margin-bottom:20px; }
+  .form-row label{
+    display:block;
+    font-size:14px;
+    color:var(--ink);
+    margin-bottom:8px;
+  }
+  .form-row input,
+  .form-row textarea{
+    width:100%;
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:15px;
+    padding:12px 14px;
+    border-radius:8px;
+    border:1px solid rgba(42,107,107,0.25);
+    background:#fff;
+    color:var(--ink);
+    resize:vertical;
+  }
+  .form-row input:focus,
+  .form-row textarea:focus{
+    outline:none;
+    border-color:var(--teal);
+    box-shadow:0 0 0 3px rgba(61,139,139,0.15);
+  }
+  .form-consent{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:24px;
+  }
+  .form-consent input{ margin-top:3px; }
+  .form-consent label{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.4;
+  }
+  .form-consent a{ color:var(--teal-dark); text-decoration:underline; }
+  .form-submit{
+    width:100%;
+    background:var(--amber);
+    color:#fff;
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:16px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:filter .15s ease, transform .15s ease;
+  }
+  .form-submit:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+  .req{ color:var(--amber); }
+  .field-error{
+    display:none;
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:12.5px;
+    color:#c0392b;
+    margin-top:6px;
+  }
+  .form-row.invalid input,
+  .form-row.invalid textarea{
+    border-color:#c0392b;
+    box-shadow:0 0 0 3px rgba(192,57,43,0.12);
+  }
+  .form-row.invalid .field-error{ display:block; }
+  .form-consent.invalid .field-error{ display:block; }
+  .form-success{
+    display:none;
+    text-align:center;
+    font-family:Georgia, serif;
+    font-weight:700;
+    color:var(--teal-dark);
+    font-size:15px;
+    margin-top:16px;
+  }
+  .form-success.show{ display:block; }
+  .form-note{
+    text-align:center;
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:13px;
+    color:var(--muted);
+    margin-top:16px;
+  }
+
+  /* ================= FOOTER ================= */
+  .site-footer{
+    background:var(--teal-dark);
+    padding:26px 0;
+  }
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .footer-copy{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:13px;
+    color:rgba(255,255,255,0.75);
+  }
+  .footer-links{
+    display:flex;
+    gap:24px;
+  }
+  .footer-links a{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:13px;
+    color:rgba(255,255,255,0.75);
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .footer-links a:hover{ color:#fff; }
+
 </style>
 </head>
 <body>
@@ -1335,8 +1514,60 @@
   </div>
 </section>
 
-<!-- Временный якорь: сюда позже встанет форма обратной связи -->
-<div id="contact"></div>
+<section class="final">
+  <div class="wrap">
+    <div class="final-logo">
+      <img src="images/hth-logo.png" alt="Human to Human Marketing Agency">
+    </div>
+    <h2>Один канал — это риск. Дайте бизнесу больше опор.</h2>
+    <a class="final-email" href="mailto:n_uglova@mail.ru">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
+      n_uglova@mail.ru
+    </a>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="wrap">
+    <div class="contact-head">
+      <div class="contact-kicker">Заявка</div>
+      <h3>Напишите нам, чтобы получить бесплатную консультацию</h3>
+    </div>
+
+    <form class="contact-form" id="cf-form" novalidate>
+      <div class="form-row">
+        <label for="cf-name">Ваше Имя</label>
+        <input id="cf-name" type="text">
+      </div>
+      <div class="form-row">
+        <label for="cf-contact">Ваши контакты <span class="req">*</span></label>
+        <input id="cf-contact" type="text">
+        <p class="field-error" id="cf-contact-error">Заполните это поле</p>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Ваша заявка</label>
+        <textarea id="cf-message" rows="4" placeholder="Напишите нам - мы ответим в ближайшее время!"></textarea>
+      </div>
+      <div class="form-consent">
+        <input id="cf-consent" type="checkbox">
+        <label for="cf-consent">Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html">Политикой обработки персональных данных</a></label>
+        <p class="field-error" id="cf-consent-error">Нужно поставить галочку</p>
+      </div>
+      <button type="submit" class="form-submit">Отправить заявку</button>
+      <p class="form-success" id="cf-success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
+      <p class="form-note">Макет формы — обработчик подключим отдельно</p>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-copy">© 2026 Human to Human Marketing Agency. Все права защищены.</div>
+    <div class="footer-links">
+      <a href="privacy.html">Политика обработки персональных данных</a>
+    </div>
+  </div>
+</footer>
 
 <script>
   (function(){
@@ -1353,6 +1584,46 @@
     window.addEventListener('scroll', function(){
       if(!ticking){ requestAnimationFrame(update); ticking = true; }
     }, { passive:true });
+  })();
+</script>
+
+<script>
+  (function(){
+    var form = document.getElementById('cf-form');
+    if(!form) return;
+    var contactRow = document.getElementById('cf-contact').closest('.form-row');
+    var contactInput = document.getElementById('cf-contact');
+    var consentWrap = document.getElementById('cf-consent').closest('.form-consent');
+    var consentInput = document.getElementById('cf-consent');
+    var success = document.getElementById('cf-success');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var valid = true;
+
+      if(contactInput.value.trim().length === 0){
+        contactRow.classList.add('invalid');
+        valid = false;
+      } else {
+        contactRow.classList.remove('invalid');
+      }
+
+      if(!consentInput.checked){
+        consentWrap.classList.add('invalid');
+        valid = false;
+      } else {
+        consentWrap.classList.remove('invalid');
+      }
+
+      if(valid){
+        success.classList.add('show');
+        form.reset();
+        contactRow.classList.remove('invalid');
+        consentWrap.classList.remove('invalid');
+      } else {
+        success.classList.remove('show');
+      }
+    });
   })();
 </script>
 
