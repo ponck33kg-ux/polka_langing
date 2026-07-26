@@ -216,6 +216,13 @@
     font-size:clamp(26px, 3.6vw, 42px);
     line-height:1.15;
   }
+  .band .band-sub{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(15px, 1.3vw, 18px);
+    color:#F3D9A8;
+    margin-top:10px;
+  }
 
   .pains{ padding:72px 0 88px; }
   .pain-grid{
@@ -624,6 +631,121 @@
     box-shadow:0 0 0 6px rgba(243,217,168,0.25);
   }
 
+  /* ================= SLIDE 8 — NUMBERS ================= */
+  .numbers{ padding:56px 0 72px; }
+  .num-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+  }
+  @media (max-width:780px){ .num-grid{ grid-template-columns:1fr; } }
+
+  .num-card{
+    border-radius:16px;
+    padding:34px 30px;
+    text-align:center;
+    box-shadow:0 14px 26px -18px rgba(42,107,107,0.28), 0 4px 10px -6px rgba(0,0,0,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .num-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.38), 0 8px 16px -8px rgba(0,0,0,0.1);
+  }
+  .num-card.teal{ background:var(--teal); }
+  .num-card.white{ background:#fff; }
+
+  .num-val{
+    font-size:clamp(38px, 4vw, 56px);
+    line-height:1.05;
+    margin-bottom:10px;
+  }
+  .num-card.teal .num-val{ color:#fff; }
+  .num-card.white .num-val{ color:var(--amber); }
+
+  .num-label{
+    font-size:clamp(16px, 1.3vw, 19px);
+    margin-bottom:6px;
+  }
+  .num-card.teal .num-label{ color:var(--amber); }
+  .num-card.white .num-label{ color:var(--ink); }
+
+  .num-sub{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(13px, 1vw, 15px);
+  }
+  .num-card.teal .num-sub{ color:rgba(255,255,255,0.75); }
+  .num-card.white .num-sub{ color:var(--muted); }
+
+  /* ================= SLIDE 9 — PRICING ================= */
+  .pricing{ padding:64px 0 88px; }
+  .price-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:24px;
+    align-items:stretch;
+  }
+  @media (max-width:900px){ .price-grid{ grid-template-columns:1fr; } }
+
+  .price-card{
+    border-radius:16px;
+    padding:32px 30px 30px;
+    display:flex;
+    flex-direction:column;
+  }
+  .price-card.mint{ background:var(--mint-2); }
+  .price-card.teal{
+    background:var(--teal);
+    box-shadow:0 20px 40px -20px rgba(42,107,107,0.45);
+  }
+
+  .price-title{
+    font-size:clamp(19px, 1.7vw, 23px);
+    margin-bottom:14px;
+  }
+  .price-card.mint .price-title{ color:var(--teal-dark); }
+  .price-card.teal .price-title{ color:#fff; }
+
+  .price-divider{
+    height:1px;
+    background:var(--amber);
+    opacity:0.6;
+    margin-bottom:22px;
+  }
+
+  .price-list{ list-style:none; display:flex; flex-direction:column; gap:20px; flex-grow:1; margin-bottom:26px; }
+  .price-item{ display:flex; align-items:flex-start; gap:14px; }
+  .price-dot{
+    width:16px; height:16px; min-width:16px;
+    margin-top:3px;
+    border-radius:50%;
+    background:var(--amber);
+  }
+  .price-card.teal .price-dot{ background:#F3D9A8; }
+  .price-item span{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(14px, 1.05vw, 16px);
+    line-height:1.4;
+  }
+  .price-card.mint .price-item span{ color:var(--ink); }
+  .price-card.teal .price-item span{ color:#F3D9A8; }
+
+  .price-tag{
+    display:block;
+    border-radius:10px;
+    padding:16px 20px;
+    text-align:center;
+    font-size:clamp(15px, 1.2vw, 18px);
+    letter-spacing:0.02em;
+    text-decoration:none;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+  }
+  .price-tag:hover{ transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 10px 20px -8px rgba(0,0,0,0.3); }
+  .price-card.mint .price-tag{ background:var(--amber); color:#fff; }
+  .price-card.teal .price-tag{ background:var(--teal-dark); color:#fff; }
+
 </style>
 </head>
 <body>
@@ -885,6 +1007,95 @@
         <li class="audit-item"><span class="audit-dot"></span><span>Дорожная карта первой поставки</span></li>
       </ul>
     </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Цифры говорят сами за себя</h2></div>
+</section>
+
+<section class="numbers">
+  <div class="wrap num-grid">
+    <div class="num-card teal">
+      <div class="num-val">20–25%</div>
+      <div class="num-label">средняя маржа FMCG</div>
+      <div class="num-sub">в рознице</div>
+    </div>
+    <div class="num-card white">
+      <div class="num-val">3</div>
+      <div class="num-label">шага</div>
+      <div class="num-sub">аудит → упаковка → полка</div>
+    </div>
+    <div class="num-card white">
+      <div class="num-val">20</div>
+      <div class="num-label">лет опыта</div>
+      <div class="num-sub">эксперта в ритейле</div>
+    </div>
+
+    <div class="num-card teal">
+      <div class="num-val">17%</div>
+      <div class="num-label">уходящих с МП</div>
+      <div class="num-sub">выбирают офлайн</div>
+    </div>
+    <div class="num-card white">
+      <div class="num-val">12%</div>
+      <div class="num-label">селлеров уже</div>
+      <div class="num-sub">планируют выход</div>
+    </div>
+    <div class="num-card white">
+      <div class="num-val">1</div>
+      <div class="num-label">доп. канал продаж</div>
+      <div class="num-sub">независимый от МП</div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>Форматы сотрудничества</h2>
+    <div class="band-sub">Первая консультация — 1,5 часа бесплатно</div>
+  </div>
+</section>
+
+<section class="pricing">
+  <div class="wrap price-grid">
+
+    <div class="price-card mint">
+      <div class="price-title">Аудит</div>
+      <div class="price-divider"></div>
+      <ul class="price-list">
+        <li class="price-item"><span class="price-dot"></span><span>Разбор товара и юнит-экономики</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Оценка готовности к офлайну</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>3–5 подходящих каналов</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Письменные рекомендации</span></li>
+      </ul>
+      <a class="price-tag" href="#contact">от 30 000 ₽</a>
+    </div>
+
+    <div class="price-card teal">
+      <div class="price-title">Упаковка + выход</div>
+      <div class="price-divider"></div>
+      <ul class="price-list">
+        <li class="price-item"><span class="price-dot"></span><span>Всё из «Аудита»</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>КП под байеров</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Прайс-лист и презентация</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Питчинг 3–5 сетей</span></li>
+      </ul>
+      <a class="price-tag" href="#contact">от 80 000 ₽</a>
+    </div>
+
+    <div class="price-card mint">
+      <div class="price-title">Сопровождение</div>
+      <div class="price-divider"></div>
+      <ul class="price-list">
+        <li class="price-item"><span class="price-dot"></span><span>Переговоры с сетями</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Работа с возражениями байеров</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Контроль поставок</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Ежемесячный план развития</span></li>
+      </ul>
+      <a class="price-tag" href="#contact">от 60 000 ₽/мес</a>
+    </div>
+
   </div>
 </section>
 
