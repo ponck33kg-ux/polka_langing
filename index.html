@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ПОЛКА — экраны 1–2</title>
+<title>ПОЛКА — экраны 1–3</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root{
@@ -22,6 +22,7 @@
     --muted:#5b6b6a;
     --paper:#ffffff;
     --mint:#F4F9F9;
+    --mint-2:#EBF5F4;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{
@@ -355,6 +356,148 @@
     text-align:center;
   }
 
+  /* ================= SLIDE 5 — STATS ================= */
+  .stats{ padding:56px 0 64px; }
+  .stat-grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(90px, 200px));
+    justify-content:center;
+    gap:16px;
+  }
+  @media (max-width:480px){ .stat-grid{ grid-template-columns:repeat(4, minmax(60px, 200px)); gap:8px; } }
+
+  .stat-card{
+    border-radius:16px;
+    padding:20px 14px;
+    aspect-ratio:1/1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    box-shadow:0 14px 26px -18px rgba(42,107,107,0.3), 0 4px 10px -6px rgba(0,0,0,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .stat-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.4), 0 8px 16px -8px rgba(0,0,0,0.12);
+  }
+  .stat-card.teal{ background:var(--teal); }
+  .stat-card.white{ background:#fff; }
+  .stat-card.white::after{
+    content:"";
+    position:absolute; left:16px; right:16px; bottom:0; height:3px;
+    background:var(--amber);
+    border-radius:0 0 6px 6px;
+  }
+
+  .stat-num{
+    font-size:clamp(27px, 2.7vw, 39px);
+    line-height:1.1;
+    margin-bottom:8px;
+    display:block;
+  }
+  .stat-card.teal .stat-num{ color:#fff; }
+  .stat-card.white .stat-num{ color:var(--amber); }
+
+  .stat-label{
+    font-family:Georgia, serif;
+    font-weight:700;
+    font-size:clamp(14px, 1.1vw, 17px);
+    line-height:1.3;
+  }
+  .stat-card.teal .stat-label{ color:var(--amber); }
+  .stat-card.white .stat-label{ color:var(--ink); }
+  .stat-label span{ display:block; margin-top:2px; }
+
+  /* ================= SLIDE 6 — APPROACH STEPS ================= */
+  .approach{ padding:64px 0 88px; }
+  .step-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  @media (max-width:480px){ .step-grid{ grid-template-columns:1fr; } }
+
+  .step-card{
+    border-radius:16px;
+    padding:34px 28px;
+    min-height:390px;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 14px 26px -18px rgba(42,107,107,0.3), 0 4px 10px -6px rgba(0,0,0,0.06);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .step-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.4), 0 8px 16px -8px rgba(0,0,0,0.12);
+  }
+  .step-card.mint{ background:var(--mint-2); }
+  .step-card.teal{
+    background:radial-gradient(120% 140% at 25% 15%, #46999a 0%, var(--teal) 45%, #326f6f 100%);
+    box-shadow:0 20px 40px -20px rgba(42,107,107,0.45);
+  }
+  .step-card::before{
+    content:attr(data-num);
+    position:absolute;
+    top:-0.15em; right:-0.05em;
+    font-size:170px;
+    line-height:1;
+    font-weight:700;
+    z-index:0;
+    pointer-events:none;
+  }
+  .step-card.mint::before{ color:rgba(42,107,107,0.07); }
+  .step-card.teal::before{ color:rgba(255,255,255,0.08); }
+  .step-card > *{ position:relative; z-index:1; }
+
+  .step-card:not(:last-child)::after{
+    content:"→";
+    position:absolute;
+    right:-28px; top:50%;
+    transform:translateY(-50%);
+    font-size:26px;
+    color:var(--amber);
+    z-index:2;
+  }
+  @media (max-width:900px){ .step-card:not(:last-child)::after{ display:none; } }
+
+  .step-title{
+    font-size:clamp(19px, 1.7vw, 23px);
+    margin-bottom:20px;
+  }
+  .step-card.mint .step-title{ color:var(--teal-dark); }
+  .step-card.teal .step-title{ color:#fff; }
+
+  .step-list{ list-style:none; display:flex; flex-direction:column; gap:14px; }
+  .step-list li{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(14px, 1vw, 16px);
+    line-height:1.4;
+    padding-left:16px;
+    position:relative;
+  }
+  .step-list li::before{
+    content:"·";
+    position:absolute; left:0; top:-3px;
+    font-size:22px;
+  }
+  .step-card.mint .step-list li{ color:var(--ink); }
+  .step-card.mint .step-list li::before{ color:var(--amber); }
+  .step-card.teal .step-list li{ color:#F3D9A8; }
+  .step-card.teal .step-list li::before{ color:#F3D9A8; }
+
+  .step-text{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(14px, 1vw, 16px);
+    line-height:1.5;
+  }
+  .step-card.teal .step-text{ color:#F3D9A8; }
+
 </style>
 </head>
 <body>
@@ -458,6 +601,60 @@
   <div class="wrap">
     <div class="closing-banner">
       <p>Несколько каналов сбыта — это не усложнение, а грамотная стратегия, снижающая риски бизнеса</p>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Почему один МП — невыгодно</h2></div>
+</section>
+
+<section class="stats">
+  <div class="wrap stat-grid">
+    <div class="stat-card teal"><span class="stat-num">34,5%</span><span class="stat-label">комиссия WB «одежда»</span></div>
+    <div class="stat-card white"><span class="stat-num">29,5%</span><span class="stat-label">комиссия WB «быт.химия»</span></div>
+    <div class="stat-card teal"><span class="stat-num">5–15%</span><span class="stat-label">комиссия WB «электроника»</span></div>
+    <div class="stat-card white"><span class="stat-num">4–22%</span><span class="stat-label">комиссия Ozon прогрессивная шкала</span></div>
+
+    <div class="stat-card white"><span class="stat-num">6–11%</span><span class="stat-label">реальная маржа у 8 из 10 продавцов</span></div>
+    <div class="stat-card teal"><span class="stat-num">50 000 ₽</span><span class="stat-label">типичный штраф WB за нарушение оферты</span></div>
+    <div class="stat-card white"><span class="stat-num">1 млн ₽</span><span class="stat-label">Максимальный штраф за грубое нарушение</span></div>
+    <div class="stat-card teal"><span class="stat-num">6–12 мес</span><span class="stat-label">срок выхода на прибыль<span>30% в убытке весь год</span></span></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap"><h2>Наш подход</h2></div>
+</section>
+
+<section class="approach">
+  <div class="wrap step-grid">
+    <div class="step-card mint" data-num="01">
+      <div class="step-title">Погружение</div>
+      <ul class="step-list">
+        <li>Аналитика</li>
+        <li>Подбор каналов</li>
+        <li>Подготовка стратегии выхода в офлайн</li>
+      </ul>
+    </div>
+    <div class="step-card teal" data-num="02">
+      <div class="step-title">Стратегия</div>
+      <ul class="step-list">
+        <li>УТП для разных каналов</li>
+        <li>Предложение для байеров</li>
+        <li>Юнит-экономика и рекламные бюджеты</li>
+      </ul>
+    </div>
+    <div class="step-card mint" data-num="03">
+      <div class="step-title">Реализация</div>
+      <ul class="step-list">
+        <li>Переговорный процесс с сетями</li>
+        <li>Выход на остальные каналы</li>
+      </ul>
+    </div>
+    <div class="step-card teal" data-num="04">
+      <div class="step-title">Результат</div>
+      <p class="step-text">Первая поставка на полку — начало формирования устойчивой системы дистрибуции вашего продукта</p>
     </div>
   </div>
 </section>
