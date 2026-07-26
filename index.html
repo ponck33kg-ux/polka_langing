@@ -111,11 +111,19 @@
   }
   .hero-tag{
     background:var(--teal-dark);
-    padding:28px 0;
     position:relative; z-index:2;
   }
-  .hero-tag .wrap{ display:flex; align-items:center; }
+  .hero-tag .wrap{
+    display:flex;
+    align-items:stretch;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    min-height:84px;
+  }
   .contact-email{
+    display:flex;
+    align-items:center;
     color:var(--gold);
     font-family:Georgia, serif;
     font-weight:400;
@@ -123,6 +131,30 @@
     letter-spacing:0.02em;
   }
   .contact-email:hover{ color:#fff; }
+
+  .hero-cta-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    align-self:stretch;
+    background:#fff;
+    color:var(--gold);
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:18px;
+    padding:0 34px;
+    border-radius:10px;
+    white-space:nowrap;
+    animation:cta-pulse 2.2s ease-in-out infinite;
+  }
+  .hero-cta-btn:hover{ color:var(--teal-dark); }
+  @keyframes cta-pulse{
+    0%, 100%{ transform:scale(1); box-shadow:0 0 0 0 rgba(255,255,255,0.45); }
+    50%{ transform:scale(1.045); box-shadow:0 0 0 10px rgba(255,255,255,0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-cta-btn{ animation:none; }
+  }
 
   /* ================= SLIDE 2 — AUTHOR ================= */
   .author-band{
@@ -499,11 +531,16 @@
 
   .step-text{
     font-family:Georgia, serif;
-    font-weight:400;
-    font-size:clamp(14px, 1vw, 16px);
+    font-weight:700;
+    font-size:clamp(18px, 1.7vw, 22px);
     line-height:1.5;
+    position:relative;
+    z-index:2;
   }
-  .step-card.teal .step-text{ color:#F3D9A8; }
+  .step-card.teal .step-text{
+    color:var(--gold);
+    text-shadow:0 0 18px rgba(255,255,255,0.65), 0 0 36px rgba(230,235,240,0.4);
+  }
 
   /* ================= SLIDE 7 — WORK PROCESS ================= */
   .work{ padding:56px 0 72px; }
@@ -1092,6 +1129,7 @@
   <div class="hero-tag">
     <div class="wrap">
       <a class="contact-email" href="mailto:n_uglova@mail.ru">n_uglova@mail.ru</a>
+      <a class="hero-cta-btn" href="#contact">Напишите нам</a>
     </div>
   </div>
 </section>
