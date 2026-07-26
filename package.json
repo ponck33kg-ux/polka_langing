@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "serve . -l $PORT"
+    "start": "node server.js"
   },
   "dependencies": {
-    "serve": "^14.2.6"
-  },
-  "overrides": {
-    "brace-expansion": "^5.0.8"
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
   }
 }

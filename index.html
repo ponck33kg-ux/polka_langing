@@ -1555,7 +1555,6 @@
       </div>
       <button type="submit" class="form-submit">Отправить заявку</button>
       <p class="form-success" id="cf-success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
-      <p class="form-note">Макет формы — обработчик подключим отдельно</p>
     </form>
   </div>
 </section>
@@ -1591,11 +1590,14 @@
   (function(){
     var form = document.getElementById('cf-form');
     if(!form) return;
+    var nameInput = document.getElementById('cf-name');
     var contactRow = document.getElementById('cf-contact').closest('.form-row');
     var contactInput = document.getElementById('cf-contact');
+    var messageInput = document.getElementById('cf-message');
     var consentWrap = document.getElementById('cf-consent').closest('.form-consent');
     var consentInput = document.getElementById('cf-consent');
     var success = document.getElementById('cf-success');
+    var submitBtn = form.querySelector('.form-submit');
 
     form.addEventListener('submit', function(e){
       e.preventDefault();
@@ -1615,14 +1617,42 @@
         consentWrap.classList.remove('invalid');
       }
 
-      if(valid){
-        success.classList.add('show');
-        form.reset();
-        contactRow.classList.remove('invalid');
-        consentWrap.classList.remove('invalid');
-      } else {
+      if(!valid){
         success.classList.remove('show');
+        return;
       }
+
+      submitBtn.disabled = true;
+      var originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Отправляем…';
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nameInput.value,
+          contact: contactInput.value,
+          message: messageInput.value
+        })
+      })
+        .then(function(res){ return res.ok; })
+        .then(function(ok){
+          if(ok){
+            success.classList.add('show');
+            form.reset();
+            contactRow.classList.remove('invalid');
+            consentWrap.classList.remove('invalid');
+          } else {
+            alert('Не получилось отправить заявку. Попробуйте ещё раз чуть позже.');
+          }
+        })
+        .catch(function(){
+          alert('Не получилось отправить заявку. Проверьте соединение и попробуйте снова.');
+        })
+        .finally(function(){
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        });
     });
   })();
 </script>
