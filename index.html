@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ПОЛКА — выход в офлайн-ритейл</title>
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="canonical" href="https://polka.support/">
+<meta name="description" content="Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом. Аудит товара, упаковка под байеров, выход на полку — от первой консультации до первой поставки.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ПОЛКА — выход в офлайн-ритейл">
+<meta property="og:description" content="Пора перестать зависеть от маркетплейсов. Помогаем подключить розничные сети, шоурумы и другие каналы сбыта — от аудита до первой поставки.">
+<meta property="og:image" content="https://polka.support/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://polka.support">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ПОЛКА — выход в офлайн-ритейл">
+<meta name="twitter:description" content="Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом.">
+<meta name="twitter:image" content="https://polka.support/images/og-image.png">
 <style>
   :root{
     --teal:#3D8B8B;
@@ -132,6 +145,34 @@
   }
   .contact-email:hover{ color:#fff; }
 
+  /* ---------------- sticky anchor nav ---------------- */
+  .site-nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(42,107,107,0.96);
+    backdrop-filter:blur(6px);
+  }
+  .site-nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:28px;
+    padding:14px 0;
+  }
+  .site-nav a{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:14px;
+    color:rgba(255,255,255,0.85);
+    white-space:nowrap;
+  }
+  .site-nav a:hover{ color:var(--gold); }
+  @media (max-width:560px){
+    .site-nav .wrap{ justify-content:center; gap:18px; flex-wrap:wrap; padding:10px 0; }
+    .site-nav a{ font-size:13px; }
+  }
+
   .hero-cta-btn{
     display:flex;
     align-items:center;
@@ -254,6 +295,13 @@
     font-size:clamp(15px, 1.3vw, 18px);
     color:#F3D9A8;
     margin-top:10px;
+  }
+  .band .band-sub-detail{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:clamp(13px, 1.05vw, 15px);
+    color:rgba(255,255,255,0.72);
+    margin-top:6px;
   }
 
   .pains{ padding:72px 0 88px; }
@@ -1106,6 +1154,14 @@
 </head>
 <body>
 
+<nav class="site-nav">
+  <div class="wrap">
+    <a href="#channels">Каналы</a>
+    <a href="#pricing">Цены</a>
+    <a href="#start">Как начать</a>
+  </div>
+</nav>
+
 <section class="hero">
   <svg class="hero-arcs" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="700" cy="350" r="520" fill="none" stroke="var(--teal-arc-1)" stroke-width="60"/>
@@ -1154,7 +1210,7 @@
       </ul>
     </div>
     <div class="author-text">
-      <p>Высококвалифицированный специалист по работе с ритейлом с опытом во всех элементах торговых цепочек — от производителя до торговой сети. Директор по маркетингу в компании ЛИДЕРЕ рынка, а значит человек, который досконально знает особенности продажи товара на каждом этапе.</p>
+      <p>За эти годы я провела сотни переговоров с байерами розничных сетей, а также успела поработать и на стороне самого ритейла. Поэтому вижу процесс с обеих сторон и знаю все его тонкости. Именно такое глубокое, экспертное понимание отрасли я приношу в ваш проект.</p>
       <p class="highlight">Я помогу вам подключить разные каналы сбыта — вы снизите зависимость от маркетплейсов и создадите устойчивую качественную дистрибуцию, которая будет работать на вас.</p>
     </div>
   </div>
@@ -1179,7 +1235,7 @@
   <div class="wrap"><h2>Каналы сбыта: не только маркетплейс</h2></div>
 </section>
 
-<section class="channels">
+<section class="channels" id="channels">
   <div class="wrap ch-grid">
     <div class="ch-card online">
       <div class="ch-title">Онлайн-каналы</div>
@@ -1229,7 +1285,7 @@
 </section>
 
 <section class="band">
-  <div class="wrap"><h2>Наш подход</h2></div>
+  <div class="wrap"><h2>Как мы ведём проект</h2></div>
 </section>
 
 <section class="approach">
@@ -1411,10 +1467,11 @@
   <div class="wrap">
     <h2>Форматы сотрудничества</h2>
     <div class="band-sub">Первая консультация — 1,5 часа бесплатно</div>
+    <div class="band-sub-detail">Разберём ваш товар и дадим 2–3 конкретных канала сбыта</div>
   </div>
 </section>
 
-<section class="pricing">
+<section class="pricing" id="pricing">
   <div class="wrap price-grid">
 
     <div class="price-card mint">
@@ -1507,10 +1564,13 @@
 </section>
 
 <section class="band">
-  <div class="wrap"><h2>Как проходит работа</h2></div>
+  <div class="wrap">
+    <h2>Как начать сотрудничество</h2>
+    <div class="band-sub-detail">Вот что происходит с момента первого сообщения до старта проекта, описанного выше</div>
+  </div>
 </section>
 
-<section class="process">
+<section class="process" id="start">
   <div class="wrap">
     <p class="process-sub">Среднее время от первого контакта до старта работы — 3–5 дней</p>
 
