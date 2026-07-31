@@ -328,6 +328,25 @@
     color:rgba(255,255,255,0.72);
     margin-top:6px;
   }
+  .band .band-sub-big{
+    font-size:clamp(22px, 2.6vw, 30px);
+    font-weight:700;
+    color:var(--gold);
+  }
+  .band-cta-btn{
+    display:inline-block;
+    margin-top:22px;
+    background:var(--amber);
+    color:#fff;
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:16px;
+    padding:14px 32px;
+    border-radius:10px;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,0.35);
+    transition:transform .15s ease, filter .15s ease;
+  }
+  .band-cta-btn:hover{ transform:translateY(-2px); filter:brightness(1.06); }
 
   .band-flex{
     display:flex;
@@ -935,6 +954,26 @@
 
   /* ================= SLIDE 10 — WHY US ================= */
   .why{ padding:56px 0 72px; }
+  .why-layout{
+    display:grid;
+    grid-template-columns: 1fr 0.42fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:960px){ .why-layout{ grid-template-columns:1fr; } }
+  .why-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .why-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .why-photo img{ display:block; width:100%; height:auto; }
+  @media (max-width:960px){ .why-photo{ max-width:320px; margin:0 auto; } }
+
   .why-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -1260,7 +1299,6 @@
   <div class="wrap">
     <a href="#channels">Каналы</a>
     <a href="#pricing">Цены</a>
-    <a href="#start">Как начать</a>
   </div>
 </nav>
 
@@ -1517,8 +1555,9 @@
 <section class="band">
   <div class="wrap">
     <h2>Форматы сотрудничества</h2>
-    <div class="band-sub">Первая консультация — 1,5 часа бесплатно</div>
+    <div class="band-sub band-sub-big">Первая консультация — 1,5 часа бесплатно</div>
     <div class="band-sub-detail">Разберём ваш товар и дадим 2–3 конкретных канала сбыта</div>
+    <a class="band-cta-btn" href="#contact">Подать заявку</a>
   </div>
 </section>
 
@@ -1553,9 +1592,8 @@
       <div class="price-title">Сопровождение</div>
       <div class="price-divider"></div>
       <ul class="price-list">
-        <li class="price-item"><span class="price-dot"></span><span>Переговоры с сетями</span></li>
+        <li class="price-item"><span class="price-dot"></span><span>Подготовка к переговорам с сетями</span></li>
         <li class="price-item"><span class="price-dot"></span><span>Работа с возражениями байеров</span></li>
-        <li class="price-item"><span class="price-dot"></span><span>Контроль поставок</span></li>
         <li class="price-item"><span class="price-dot"></span><span>Ежемесячный план развития</span></li>
       </ul>
       <a class="price-tag" href="#contact">от 60 000 ₽/мес</a>
@@ -1569,14 +1607,15 @@
 </section>
 
 <section class="why">
-  <div class="wrap why-grid">
+  <div class="wrap why-layout">
+    <div class="why-grid">
 
     <div class="why-card">
       <div class="why-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"/><path d="M17 5h2.5a2.5 2.5 0 0 1 0 5H17"/><path d="M7 5H4.5a2.5 2.5 0 0 0 0 5H7"/></svg>
       </div>
       <div>
-        <div class="why-title">Опыт в рознице</div>
+        <div class="why-title">Большой опыт в b2b и b2c</div>
         <p class="why-desc">Большой практический опыт работы с розничными сетями — знаем логику байеров изнутри.</p>
       </div>
     </div>
@@ -1587,7 +1626,7 @@
       </div>
       <div>
         <div class="why-title">От аудита до полки</div>
-        <p class="why-desc">Ведём проект от аудита до первой поставки, а не только до презентации.</p>
+        <p class="why-desc">Аудит и подготовка к работе с ритейлом (готовим всё необходимое для входа в ритейл — от УТП до базы клиентов).</p>
       </div>
     </div>
 
@@ -1612,54 +1651,9 @@
     </div>
 
   </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <h2>Как начать сотрудничество</h2>
-    <div class="band-sub-detail">Вот что происходит с момента первого сообщения до старта проекта, описанного выше</div>
+  <div class="why-photo">
+    <img src="images/meme6.png" alt="">
   </div>
-</section>
-
-<section class="process" id="start">
-  <div class="wrap">
-    <p class="process-sub">Среднее время от первого контакта до старта работы — 3–5 дней</p>
-
-    <div class="timeline">
-      <div class="timeline-line"></div>
-
-      <div class="tl-step tl-step-1">
-        <div class="tl-num">1</div>
-        <div class="tl-card">
-          <div class="tl-title">Знакомство</div>
-          <p class="tl-desc">30–60 минут: рассказываете о товаре и целях, мы задаём вопросы</p>
-        </div>
-      </div>
-
-      <div class="tl-step tl-step-2">
-        <div class="tl-num">2</div>
-        <div class="tl-card">
-          <div class="tl-title">Аудит</div>
-          <p class="tl-desc">Разбираем юнит-экономику, упаковку и готовность к офлайну</p>
-        </div>
-      </div>
-
-      <div class="tl-step tl-step-3">
-        <div class="tl-num">3</div>
-        <div class="tl-card">
-          <div class="tl-title">Предложение</div>
-          <p class="tl-desc">Формируем план выхода и стоимость под ваш товар</p>
-        </div>
-      </div>
-
-      <div class="tl-step tl-step-4">
-        <div class="tl-num">4</div>
-        <div class="tl-card">
-          <div class="tl-title">Старт</div>
-          <p class="tl-desc">Подписываем договор и начинаем питчинг сетей</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
