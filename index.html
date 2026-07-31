@@ -1116,8 +1116,8 @@
   .final{
     position:relative;
     overflow:hidden;
-    background:radial-gradient(120% 140% at 70% 20%, #46999a 0%, var(--teal) 45%, #326f6f 100%);
-    padding:80px 0 64px;
+    background:radial-gradient(120% 140% at 70% 20%, #3f9394 0%, #235e5e 55%, #163f3f 100%);
+    padding:88px 0 72px;
     text-align:center;
   }
   .final-logo{
@@ -1125,14 +1125,20 @@
     margin:0 auto 40px;
     border-radius:12px;
     overflow:hidden;
-    box-shadow:0 20px 40px -16px rgba(0,0,0,0.4);
+    box-shadow:0 20px 40px -16px rgba(0,0,0,0.5);
   }
   .final-logo img{ display:block; width:100%; height:auto; }
   .final h2{
     color:#fff;
-    font-size:clamp(26px, 3.6vw, 40px);
-    line-height:1.25;
-    max-width:20ch;
+    font-size:clamp(30px, 4.2vw, 48px);
+    line-height:1.2;
+    max-width:22ch;
+    margin:0 auto 20px;
+    text-shadow:0 2px 12px rgba(0,0,0,0.35);
+  }
+  .final-note{
+    color:var(--gold);
+    font-size:clamp(19px, 2.2vw, 26px);
     margin:0 auto 32px;
   }
   .final-email{
@@ -1161,6 +1167,28 @@
     font-size:clamp(22px, 2.6vw, 30px);
     color:var(--teal-dark);
   }
+  .contact-layout{
+    display:grid;
+    grid-template-columns: 1fr 0.5fr;
+    gap:40px;
+    align-items:center;
+    max-width:900px;
+    margin:0 auto;
+  }
+  @media (max-width:800px){ .contact-layout{ grid-template-columns:1fr; max-width:560px; } }
+  .contact-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .contact-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .contact-photo img{ display:block; width:100%; height:auto; }
+  @media (max-width:800px){ .contact-photo{ max-width:320px; margin:0 auto; } }
+
   .contact-form{
     max-width:560px;
     margin:0 auto;
@@ -1660,9 +1688,10 @@
 <section class="final">
   <div class="wrap">
     <div class="final-logo">
-      <img src="images/hth-logo.png" alt="Human to Human Marketing Agency">
+      <img src="images/hth-logo.png" alt="POLKA project">
     </div>
     <h2>Один канал — это риск. Дайте бизнесу больше опор.</h2>
+    <p class="final-note">Бесплатная консультация — 1,5 часа</p>
     <a class="final-email" href="mailto:polka.project@mail.ru">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
       polka.project@mail.ru
@@ -1677,6 +1706,7 @@
       <h3>Напишите нам, чтобы получить бесплатную консультацию</h3>
     </div>
 
+    <div class="contact-layout">
     <form class="contact-form" id="cf-form" novalidate>
       <div class="form-row">
         <label for="cf-name">Ваше Имя</label>
@@ -1699,12 +1729,16 @@
       <button type="submit" class="form-submit">Отправить заявку</button>
       <p class="form-success" id="cf-success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
     </form>
+    <div class="contact-photo">
+      <img src="images/meme7.png" alt="">
+    </div>
+    </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="wrap footer-row">
-    <div class="footer-copy">© 2026 Human to Human Marketing Agency. Все права защищены.</div>
+    <div class="footer-copy">© 2026 POLKA project. Все права защищены.</div>
     <div class="footer-links">
       <a href="privacy.html">Политика обработки персональных данных</a>
     </div>
