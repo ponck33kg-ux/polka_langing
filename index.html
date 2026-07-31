@@ -329,6 +329,21 @@
     margin-top:6px;
   }
 
+  .band-flex{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .band-highlight{ color:var(--gold); }
+  .band-meme{
+    width:60px; height:60px;
+    min-width:60px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 8px 18px -6px rgba(0,0,0,0.35);
+  }
+
   .pains{ padding:72px 0 88px; }
   .pains-layout{
     display:grid;
@@ -1340,7 +1355,10 @@
 </section>
 
 <section class="band">
-  <div class="wrap"><h2>Почему один МП — невыгодно</h2></div>
+  <div class="wrap band-flex">
+    <h2>Почему один МП — невыгодно <span class="band-highlight">в цифрах наглядно</span></h2>
+    <img class="band-meme" src="images/meme4.png" alt="">
+  </div>
 </section>
 
 <section class="stats">
