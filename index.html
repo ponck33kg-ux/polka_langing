@@ -331,17 +331,18 @@
 
   .band-flex{
     display:flex;
-    align-items:stretch;
+    align-items:center;
+    justify-content:space-between;
     gap:20px;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
   }
+  @media (max-width:560px){ .band-flex{ flex-wrap:wrap; justify-content:flex-start; } }
   .band-highlight{ color:var(--gold); }
   .band-meme{
-    height:100%;
+    max-height:90px;
     width:auto;
-    border-radius:10px;
-    object-fit:cover;
-    box-shadow:0 8px 18px -6px rgba(0,0,0,0.35);
+    object-fit:contain;
+    flex-shrink:0;
   }
 
   .pains{ padding:72px 0 88px; }
