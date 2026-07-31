@@ -330,6 +330,26 @@
   }
 
   .pains{ padding:72px 0 88px; }
+  .pains-layout{
+    display:grid;
+    grid-template-columns: 1fr 0.42fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:960px){ .pains-layout{ grid-template-columns:1fr; } }
+  .pains-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .pains-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .pains-photo img{ display:block; width:100%; height:auto; }
+  @media (max-width:960px){ .pains-photo{ max-width:320px; margin:0 auto; } }
+
   .pain-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -1221,7 +1241,7 @@
 <section class="author-body">
   <div class="wrap author-grid">
     <div class="author-card">
-      <div class="author-role"><b>Основательница</b><br>Human to Human Marketing Agency</div>
+      <div class="author-role"><b>Основательница</b><br>POLKA PROJECT</div>
       <div class="author-divider"></div>
       <ul class="fact-list">
         <li class="fact-item"><span class="fact-dot"></span>20 лет в ритейле</li>
@@ -1244,13 +1264,18 @@
 </section>
 
 <section class="pains">
-  <div class="wrap pain-grid">
-    <div class="pain-card"><span class="pain-num">01</span><span class="pain-dot"></span><p>Товар лежит на чужом складе — и это риск</p></div>
-    <div class="pain-card"><span class="pain-num">02</span><span class="pain-dot"></span><p>Весь оборот зависит от одной площадки</p></div>
-    <div class="pain-card"><span class="pain-num">03</span><span class="pain-dot"></span><p>Байеры сетей говорят не на языке маркетплейса</p></div>
-    <div class="pain-card"><span class="pain-num">04</span><span class="pain-dot"></span><p>Комиссии и издержки МП растут быстрее прибыли</p></div>
-    <div class="pain-card"><span class="pain-num">05</span><span class="pain-dot"></span><p>Нет опыта и контактов для входа в сети</p></div>
-    <div class="pain-card"><span class="pain-num">06</span><span class="pain-dot"></span><p>Непонятно, с чего начать выход в офлайн</p></div>
+  <div class="wrap pains-layout">
+    <div class="pain-grid">
+      <div class="pain-card"><span class="pain-num">01</span><span class="pain-dot"></span><p>Весь оборот зависит от одной площадки</p></div>
+      <div class="pain-card"><span class="pain-num">02</span><span class="pain-dot"></span><p>Комиссии и издержки МП растут быстрее прибыли</p></div>
+      <div class="pain-card"><span class="pain-num">03</span><span class="pain-dot"></span><p>Маркетплейсы в одностороннем порядке навязывают свою коммерческую политику</p></div>
+      <div class="pain-card"><span class="pain-num">04</span><span class="pain-dot"></span><p>Приходится экономить на персонале и многое делать самому</p></div>
+      <div class="pain-card"><span class="pain-num">05</span><span class="pain-dot"></span><p>Нет опыта для выхода в офлайн-ритейл</p></div>
+      <div class="pain-card"><span class="pain-num">06</span><span class="pain-dot"></span><p>Непонятно, с чего начать выход в офлайн</p></div>
+    </div>
+    <div class="pains-photo">
+      <img src="images/meme2.png" alt="">
+    </div>
   </div>
 </section>
 
