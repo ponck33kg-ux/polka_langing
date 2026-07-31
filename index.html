@@ -397,6 +397,26 @@
 
   /* ================= SLIDE 4 — CHANNELS ================= */
   .channels{ padding:72px 0 88px; }
+  .channels-layout{
+    display:grid;
+    grid-template-columns: 1fr 0.42fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:960px){ .channels-layout{ grid-template-columns:1fr; } }
+  .channels-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .channels-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .channels-photo img{ display:block; width:100%; height:auto; }
+  @media (max-width:960px){ .channels-photo{ max-width:320px; margin:0 auto; } }
+
   .ch-grid{
     display:grid;
     grid-template-columns:repeat(2, 1fr);
@@ -1284,24 +1304,29 @@
 </section>
 
 <section class="channels" id="channels">
-  <div class="wrap ch-grid">
-    <div class="ch-card online">
-      <div class="ch-title">Онлайн-каналы</div>
-      <ul class="ch-list">
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Маркетплейсы</b>тест новинок и оборачиваемость</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Свой интернет-магазин</b>бренды с высоким чеком</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Опт и B2B-платформы</b>сырьё и крупные партии</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Соцсети и мессенджеры</b>нишевые товары</span></li>
-      </ul>
+  <div class="wrap channels-layout">
+    <div class="ch-grid">
+      <div class="ch-card online">
+        <div class="ch-title">Онлайн-каналы</div>
+        <ul class="ch-list">
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Маркетплейсы</b>тест новинок и оборачиваемость</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Свой интернет-магазин</b>бренды с высоким чеком</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Опт и B2B-платформы</b>сырьё и крупные партии</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Соцсети и мессенджеры</b>нишевые товары</span></li>
+        </ul>
+      </div>
+      <div class="ch-card offline">
+        <div class="ch-title">Офлайн-каналы</div>
+        <ul class="ch-list">
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Розничные сети</b>товары повседневного спроса</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Шоурумы и профильные точки</b>премиальные товары</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>HoReCa и локальная дистрибуция</b>продукты питания</span></li>
+          <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Оптовые базы и дистрибьюторы</b>крупные объёмы</span></li>
+        </ul>
+      </div>
     </div>
-    <div class="ch-card offline">
-      <div class="ch-title">Офлайн-каналы</div>
-      <ul class="ch-list">
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Розничные сети</b>товары повседневного спроса</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Шоурумы и профильные точки</b>премиальные товары</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>HoReCa и локальная дистрибуция</b>продукты питания</span></li>
-        <li class="ch-item"><span class="ch-dot"></span><span class="ch-item-text"><b>Оптовые базы и дистрибьюторы</b>крупные объёмы</span></li>
-      </ul>
+    <div class="channels-photo">
+      <img src="images/meme3.png" alt="">
     </div>
   </div>
 </section>
@@ -1309,7 +1334,7 @@
 <section class="closing">
   <div class="wrap">
     <div class="closing-banner">
-      <p>Несколько каналов сбыта — это не усложнение, а грамотная стратегия, снижающая риски бизнеса</p>
+      <p>Несколько каналов сбыта — это не усложнение, а грамотная стратегия, снижающая риски бизнеса. Начни строить многоканальную дистрибуцию сегодня!</p>
     </div>
   </div>
 </section>
