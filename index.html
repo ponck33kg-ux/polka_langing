@@ -78,6 +78,10 @@
     color:var(--gold);
     text-transform:uppercase;
   }
+  .eyebrow-solo{
+    font-size:clamp(24px, 2.6vw, 34px);
+    letter-spacing:0.1em;
+  }
   .eyebrow-of{
     font-size:15px;
     color:rgba(255,255,255,0.75);
@@ -178,20 +182,24 @@
     align-items:center;
     justify-content:center;
     align-self:stretch;
-    background:#fff;
-    color:var(--gold);
+    background:var(--amber);
+    color:#fff;
+    text-align:center;
     font-family:'Cambria', Georgia, serif;
     font-weight:700;
-    font-size:18px;
-    padding:0 34px;
+    font-size:16px;
+    line-height:1.25;
+    padding:12px 28px;
     border-radius:10px;
-    white-space:nowrap;
+    max-width:340px;
+    white-space:normal;
+    box-shadow:0 8px 20px -8px rgba(0,0,0,0.35);
     animation:cta-pulse 2.2s ease-in-out infinite;
   }
-  .hero-cta-btn:hover{ color:var(--teal-dark); }
+  .hero-cta-btn:hover{ filter:brightness(1.08); }
   @keyframes cta-pulse{
-    0%, 100%{ transform:scale(1); box-shadow:0 0 0 0 rgba(255,255,255,0.45); }
-    50%{ transform:scale(1.045); box-shadow:0 0 0 10px rgba(255,255,255,0); }
+    0%, 100%{ transform:scale(1); box-shadow:0 8px 20px -8px rgba(0,0,0,0.35), 0 0 0 0 rgba(255,255,255,0.5); }
+    50%{ transform:scale(1.03); box-shadow:0 8px 20px -8px rgba(0,0,0,0.35), 0 0 0 10px rgba(255,255,255,0); }
   }
   @media (prefers-reduced-motion: reduce){
     .hero-cta-btn{ animation:none; }
@@ -221,11 +229,28 @@
   }
   .author-grid{
     display:grid;
-    grid-template-columns: 0.68fr 1fr;
-    gap:56px;
+    grid-template-columns: 0.62fr 0.85fr 0.5fr;
+    gap:40px;
     align-items:start;
   }
-  @media (max-width:860px){ .author-grid{ grid-template-columns:1fr; } }
+  @media (max-width:1000px){ .author-grid{ grid-template-columns: 0.68fr 1fr; } .author-photo{ grid-column:1 / -1; max-width:280px; margin:0 auto; } }
+  @media (max-width:860px){ .author-grid{ grid-template-columns:1fr; } .author-photo{ max-width:320px; } }
+
+  .author-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .author-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .author-photo img{
+    display:block;
+    width:100%;
+    height:auto;
+  }
 
   .author-card{
     background:var(--teal);
@@ -1171,21 +1196,17 @@
 
   <div class="hero-inner wrap">
     <div class="eyebrow-row">
-      <span class="eyebrow">Проект ПОЛКА</span>
-      <span class="eyebrow-of">от</span>
-      <a class="logo-btn" href="#contact" aria-label="Перейти к форме обратной связи — Human to Human Marketing Agency">
-        <img src="images/logo-human-to-human.png" alt="Human to Human Marketing Agency">
-      </a>
+      <span class="eyebrow eyebrow-solo">Проект ПОЛКА</span>
     </div>
 
     <h1 class="headline">Хотите больше гарантий для бизнеса?<br>Пора перестать зависеть от маркетплейсов!</h1>
-    <p class="hero-sub">Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом</p>
+    <p class="hero-sub">Выход в офлайн-ритейл от команды с 20-летним опытом.</p>
   </div>
 
   <div class="hero-tag">
     <div class="wrap">
-      <a class="contact-email" href="mailto:n_uglova@mail.ru">n_uglova@mail.ru</a>
-      <a class="hero-cta-btn" href="#contact">Напишите нам</a>
+      <a class="contact-email" href="mailto:polka.project@mail.ru">polka.project@mail.ru</a>
+      <a class="hero-cta-btn" href="#contact">Напишите нам и договоритесь о бесплатной консультации!</a>
     </div>
   </div>
 </section>
@@ -1193,7 +1214,7 @@
 <section class="author-band">
   <div class="wrap">
     <div class="author-kicker">Автор методики</div>
-    <h2>Наталья Углова</h2>
+    <h2>Наталья Кузнецова</h2>
   </div>
 </section>
 
@@ -1206,12 +1227,14 @@
         <li class="fact-item"><span class="fact-dot"></span>20 лет в ритейле</li>
         <li class="fact-item"><span class="fact-dot"></span>Работа с сетями и байерами</li>
         <li class="fact-item"><span class="fact-dot"></span>Директор по маркетингу</li>
-        <li class="fact-item"><span class="fact-dot"></span>5+ отделов с нуля</li>
       </ul>
     </div>
     <div class="author-text">
       <p>За эти годы я провела сотни переговоров с байерами розничных сетей, а также успела поработать и на стороне самого ритейла. Поэтому вижу процесс с обеих сторон и знаю все его тонкости. Именно такое глубокое, экспертное понимание отрасли я приношу в ваш проект.</p>
       <p class="highlight">Я помогу вам подключить разные каналы сбыта — вы снизите зависимость от маркетплейсов и создадите устойчивую качественную дистрибуцию, которая будет работать на вас.</p>
+    </div>
+    <div class="author-photo">
+      <img src="images/meme1.png" alt="Наталья Кузнецова">
     </div>
   </div>
 </section>
@@ -1618,9 +1641,9 @@
       <img src="images/hth-logo.png" alt="Human to Human Marketing Agency">
     </div>
     <h2>Один канал — это риск. Дайте бизнесу больше опор.</h2>
-    <a class="final-email" href="mailto:n_uglova@mail.ru">
+    <a class="final-email" href="mailto:polka.project@mail.ru">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></svg>
-      n_uglova@mail.ru
+      polka.project@mail.ru
     </a>
   </div>
 </section>
