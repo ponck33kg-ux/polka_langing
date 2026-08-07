@@ -6,18 +6,48 @@
 <title>ПОЛКА — выход в офлайн-ритейл</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="canonical" href="https://polka.support/">
-<meta name="description" content="Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом. Аудит товара, упаковка под байеров, выход на полку — от первой консультации до первой поставки.">
+<meta name="description" content="Выход в офлайн-ритейл от команды с 20-летним опытом. Аудит товара, упаковка под байеров, выход на полку розничных сетей — от бесплатной консультации до первой поставки.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="ПОЛКА — выход в офлайн-ритейл">
-<meta property="og:description" content="Пора перестать зависеть от маркетплейсов. Помогаем подключить розничные сети, шоурумы и другие каналы сбыта — от аудита до первой поставки.">
+<meta property="og:description" content="Один канал — это риск. Помогаем бизнесу выйти за пределы маркетплейсов: розничные сети, шоурумы и другие каналы сбыта — от аудита до первой поставки.">
 <meta property="og:image" content="https://polka.support/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://polka.support">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ПОЛКА — выход в офлайн-ритейл">
-<meta name="twitter:description" content="Быстрый и безболезненный выход в офлайн-ритейл от эксперта с 20-летним опытом.">
+<meta name="twitter:description" content="Выход в офлайн-ритейл от команды с 20-летним опытом. Бесплатная консультация — 1,5 часа.">
 <meta name="twitter:image" content="https://polka.support/images/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "ПРОЕКТ POLKA",
+  "url": "https://polka.support",
+  "image": "https://polka.support/images/og-image.png",
+  "description": "Выход в офлайн-ритейл от команды с 20-летним опытом. Аудит товара, упаковка под байеров, выход на полку розничных сетей.",
+  "email": "polka.project@mail.ru",
+  "areaServed": "RU",
+  "founder": {
+    "@type": "Person",
+    "name": "Наталья Кузнецова"
+  },
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Аудит"
+    },
+    {
+      "@type": "Offer",
+      "name": "Упаковка + выход"
+    },
+    {
+      "@type": "Offer",
+      "name": "Сопровождение"
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --teal:#3D8B8B;
@@ -179,22 +209,32 @@
 
   .hero-cta-btn{
     display:flex;
+    flex-direction:column;
     align-items:center;
     justify-content:center;
     align-self:stretch;
     background:var(--amber);
     color:#fff;
     text-align:center;
-    font-family:'Cambria', Georgia, serif;
-    font-weight:700;
-    font-size:16px;
-    line-height:1.25;
-    padding:12px 28px;
+    padding:10px 28px;
     border-radius:10px;
-    max-width:340px;
-    white-space:normal;
+    max-width:280px;
     box-shadow:0 8px 20px -8px rgba(0,0,0,0.35);
     animation:cta-pulse 2.2s ease-in-out infinite;
+  }
+  .hero-cta-btn .cta-main{
+    font-family:'Cambria', Georgia, serif;
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:0.02em;
+    line-height:1.2;
+  }
+  .hero-cta-btn .cta-sub{
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:12.5px;
+    color:rgba(255,255,255,0.9);
+    margin-top:2px;
   }
   .hero-cta-btn:hover{ filter:brightness(1.08); }
   @keyframes cta-pulse{
@@ -545,12 +585,33 @@
 
   /* ================= SLIDE 5 — STATS ================= */
   .stats{ padding:56px 0 64px; }
+  .stats-layout{
+    display:grid;
+    grid-template-columns: 1fr 0.38fr;
+    gap:40px;
+    align-items:center;
+  }
+  @media (max-width:960px){ .stats-layout{ grid-template-columns:1fr; } }
+  .stats-photo{
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 20px 40px -18px rgba(42,107,107,0.35), 0 6px 14px -6px rgba(0,0,0,0.1);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .stats-photo:hover{
+    transform:translateY(-6px);
+    box-shadow:0 28px 50px -18px rgba(42,107,107,0.45), 0 10px 20px -8px rgba(0,0,0,0.15);
+  }
+  .stats-photo img{ display:block; width:100%; height:auto; }
+  @media (max-width:960px){ .stats-photo{ max-width:280px; margin:0 auto; } }
+
   .stat-grid{
     display:grid;
     grid-template-columns:repeat(4, minmax(90px, 200px));
     justify-content:center;
     gap:16px;
   }
+  @media (max-width:960px){ .stat-grid{ justify-content:center; } }
   @media (max-width:480px){ .stat-grid{ grid-template-columns:repeat(4, minmax(60px, 200px)); gap:8px; } }
 
   .stat-card{
@@ -951,6 +1012,14 @@
   .price-tag:hover{ transform:translateY(-2px); filter:brightness(1.06); box-shadow:0 10px 20px -8px rgba(0,0,0,0.3); }
   .price-card.mint .price-tag{ background:var(--amber); color:#fff; }
   .price-card.teal .price-tag{ background:var(--teal-dark); color:#fff; }
+  .pricing-disclaimer{
+    text-align:center;
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:12.5px;
+    color:var(--muted);
+    margin-top:28px;
+  }
 
   /* ================= SLIDE 10 — WHY US ================= */
   .why{ padding:56px 0 72px; }
@@ -1223,6 +1292,27 @@
     border-color:var(--teal);
     box-shadow:0 0 0 3px rgba(61,139,139,0.15);
   }
+  .channel-options{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 20px;
+  }
+  .channel-option{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:Georgia, serif;
+    font-weight:400;
+    font-size:14px;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .channel-option input{ width:auto; margin:0; cursor:pointer; }
+  .form-row#cf-channel-row.invalid .channel-options{
+    outline:2px solid #c0392b;
+    outline-offset:6px;
+    border-radius:6px;
+  }
   .form-consent{
     display:flex;
     align-items:flex-start;
@@ -1349,14 +1439,14 @@
   <div class="hero-tag">
     <div class="wrap">
       <a class="contact-email" href="mailto:polka.project@mail.ru">polka.project@mail.ru</a>
-      <a class="hero-cta-btn" href="#contact">Напишите нам и договоритесь о бесплатной консультации!</a>
+      <a class="hero-cta-btn" href="#contact"><span class="cta-main">НАПИШИТЕ НАМ</span><span class="cta-sub">первая консультация бесплатно</span></a>
     </div>
   </div>
 </section>
 
 <section class="author-band">
   <div class="wrap">
-    <div class="author-kicker">Автор методики</div>
+    <div class="author-kicker">Основательница проекта</div>
     <h2>Наталья Кузнецова</h2>
   </div>
 </section>
@@ -1367,14 +1457,14 @@
       <div class="author-role"><b>Основательница</b><br>ПРОЕКТ POLKA</div>
       <div class="author-divider"></div>
       <ul class="fact-list">
-        <li class="fact-item"><span class="fact-dot"></span>20 лет в ритейле</li>
-        <li class="fact-item"><span class="fact-dot"></span>Работа с сетями и байерами</li>
-        <li class="fact-item"><span class="fact-dot"></span>Директор по маркетингу</li>
+        <li class="fact-item"><span class="fact-dot"></span>20 лет в продвижении товаров</li>
+        <li class="fact-item"><span class="fact-dot"></span>Работа в B2B, B2C</li>
+        <li class="fact-item"><span class="fact-dot"></span>Директор по маркетингу в FMCG</li>
       </ul>
     </div>
     <div class="author-text">
-      <p>За эти годы я провела сотни переговоров с байерами розничных сетей, а также успела поработать и на стороне самого ритейла. Поэтому вижу процесс с обеих сторон и знаю все его тонкости. Именно такое глубокое, экспертное понимание отрасли я приношу в ваш проект.</p>
-      <p class="highlight">Я помогу вам подключить разные каналы сбыта — вы снизите зависимость от маркетплейсов и создадите устойчивую качественную дистрибуцию, которая будет работать на вас.</p>
+      <p>За эти годы я провела сотни переговоров и вывела на рынок сотни продуктов, а также успела поработать в каждом из звеньев торговой цепочки. Поэтому вижу процесс с обеих сторон и знаю все его тонкости. Именно такое глубокое, экспертное понимание оффлайн-торговли я приношу в ваш проект.</p>
+      <p class="highlight">Я собрала команду специалистов, которые помогут вам выйти на новые рынки и увеличить продажи.</p>
     </div>
     <div class="author-photo">
       <img src="images/meme1.png" alt="Наталья Кузнецова">
@@ -1393,7 +1483,7 @@
       <div class="pain-card"><span class="pain-num">02</span><span class="pain-dot"></span><p>Комиссии и издержки МП растут быстрее прибыли</p></div>
       <div class="pain-card"><span class="pain-num">03</span><span class="pain-dot"></span><p>Маркетплейсы в одностороннем порядке навязывают свою коммерческую политику</p></div>
       <div class="pain-card"><span class="pain-num">04</span><span class="pain-dot"></span><p>Приходится экономить на персонале и многое делать самому</p></div>
-      <div class="pain-card"><span class="pain-num">05</span><span class="pain-dot"></span><p>Нет опыта для выхода в офлайн-ритейл</p></div>
+      <div class="pain-card"><span class="pain-num">05</span><span class="pain-dot"></span><p>Опыт работы — только с маркетплейсами</p></div>
       <div class="pain-card"><span class="pain-num">06</span><span class="pain-dot"></span><p>Непонятно, с чего начать выход в офлайн</p></div>
     </div>
     <div class="pains-photo">
@@ -1437,20 +1527,20 @@
 <section class="closing">
   <div class="wrap">
     <div class="closing-banner">
-      <p>Несколько каналов сбыта — это не усложнение, а грамотная стратегия, снижающая риски бизнеса. Начни строить многоканальную дистрибуцию сегодня!</p>
+      <p>Несколько каналов сбыта — это грамотная стратегия, снижающая риски бизнеса. Начни строить многоканальную дистрибуцию сегодня!</p>
     </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="wrap band-flex">
+  <div class="wrap">
     <h2>Почему один МП — невыгодно <span class="band-highlight">в цифрах наглядно</span></h2>
-    <img class="band-meme" src="images/meme4.png" alt="">
   </div>
 </section>
 
 <section class="stats">
-  <div class="wrap stat-grid">
+  <div class="wrap stats-layout">
+    <div class="stat-grid">
     <div class="stat-card teal"><span class="stat-num">34,5%</span><span class="stat-label">комиссия WB «одежда»</span></div>
     <div class="stat-card white"><span class="stat-num">29,5%</span><span class="stat-label">комиссия WB «быт.химия»</span></div>
     <div class="stat-card teal"><span class="stat-num">5–15%</span><span class="stat-label">комиссия WB «электроника»</span></div>
@@ -1460,6 +1550,10 @@
     <div class="stat-card teal"><span class="stat-num">50 000 ₽</span><span class="stat-label">типичный штраф WB за нарушение оферты</span></div>
     <div class="stat-card white"><span class="stat-num">1 млн ₽</span><span class="stat-label">Максимальный штраф за грубое нарушение</span></div>
     <div class="stat-card teal"><span class="stat-num">6–12 мес</span><span class="stat-label">срок выхода на прибыль<span>30% в убытке весь год</span></span></div>
+    </div>
+    <div class="stats-photo">
+      <img src="images/meme4.png" alt="">
+    </div>
   </div>
 </section>
 
@@ -1584,7 +1678,7 @@
   <div class="wrap">
     <h2>Форматы сотрудничества</h2>
     <div class="band-sub band-sub-big">Первая консультация — 1,5 часа бесплатно</div>
-    <div class="band-sub-detail">Разберём ваш товар и дадим 2–3 конкретных канала сбыта</div>
+    
     <a class="band-cta-btn" href="#contact">Подать заявку</a>
   </div>
 </section>
@@ -1628,6 +1722,7 @@
     </div>
 
   </div>
+  <p class="pricing-disclaimer">Указанные цены носят ориентировочный характер и не являются публичной офертой.</p>
 </section>
 
 <section class="band">
@@ -1706,7 +1801,6 @@
       <h3>Напишите нам, чтобы получить бесплатную консультацию</h3>
     </div>
 
-    <div class="contact-layout">
     <form class="contact-form" id="cf-form" novalidate>
       <div class="form-row">
         <label for="cf-name">Ваше Имя</label>
@@ -1721,6 +1815,16 @@
         <label for="cf-message">Ваша заявка</label>
         <textarea id="cf-message" rows="4" placeholder="Напишите нам - мы ответим в ближайшее время!"></textarea>
       </div>
+      <div class="form-row" id="cf-channel-row">
+        <label>Как с вами связаться удобнее всего?</label>
+        <div class="channel-options">
+          <label class="channel-option"><input type="checkbox" class="cf-channel" value="Мессенджеры"> Мессенджеры</label>
+          <label class="channel-option"><input type="checkbox" class="cf-channel" value="Электронная почта"> Электронная почта</label>
+          <label class="channel-option"><input type="checkbox" class="cf-channel" value="Телефон"> Телефон</label>
+          <label class="channel-option"><input type="checkbox" class="cf-channel" value="Любым способом"> Любым способом</label>
+        </div>
+        <p class="field-error" id="cf-channel-error">Выберите хотя бы один вариант</p>
+      </div>
       <div class="form-consent">
         <input id="cf-consent" type="checkbox">
         <label for="cf-consent">Согласен(на) на обработку персональных данных в соответствии с <a href="privacy.html">Политикой обработки персональных данных</a></label>
@@ -1729,10 +1833,6 @@
       <button type="submit" class="form-submit">Отправить заявку</button>
       <p class="form-success" id="cf-success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</p>
     </form>
-    <div class="contact-photo">
-      <img src="images/meme7.png" alt="">
-    </div>
-    </div>
   </div>
 </section>
 
@@ -1771,6 +1871,8 @@
     var contactRow = document.getElementById('cf-contact').closest('.form-row');
     var contactInput = document.getElementById('cf-contact');
     var messageInput = document.getElementById('cf-message');
+    var channelRow = document.getElementById('cf-channel-row');
+    var channelInputs = document.querySelectorAll('.cf-channel');
     var consentWrap = document.getElementById('cf-consent').closest('.form-consent');
     var consentInput = document.getElementById('cf-consent');
     var success = document.getElementById('cf-success');
@@ -1785,6 +1887,14 @@
         valid = false;
       } else {
         contactRow.classList.remove('invalid');
+      }
+
+      var anyChannelChecked = Array.prototype.some.call(channelInputs, function(cb){ return cb.checked; });
+      if(!anyChannelChecked){
+        channelRow.classList.add('invalid');
+        valid = false;
+      } else {
+        channelRow.classList.remove('invalid');
       }
 
       if(!consentInput.checked){
@@ -1803,13 +1913,17 @@
       var originalText = submitBtn.textContent;
       submitBtn.textContent = 'Отправляем…';
 
+      var selectedChannels = Array.prototype.filter.call(channelInputs, function(cb){ return cb.checked; })
+        .map(function(cb){ return cb.value; });
+
       fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: nameInput.value,
           contact: contactInput.value,
-          message: messageInput.value
+          message: messageInput.value,
+          channels: selectedChannels
         })
       })
         .then(function(res){ return res.ok; })
@@ -1818,6 +1932,7 @@
             success.classList.add('show');
             form.reset();
             contactRow.classList.remove('invalid');
+            channelRow.classList.remove('invalid');
             consentWrap.classList.remove('invalid');
           } else {
             alert('Не получилось отправить заявку. Попробуйте ещё раз чуть позже.');

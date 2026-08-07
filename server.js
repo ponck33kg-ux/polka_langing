@@ -26,6 +26,8 @@ async function ensureTable() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
+  // Migration-safe: adds the column if the table already existed from before this field was introduced
+  await pool.query(`ALTER TABLE applications ADD COLUMN IF NOT EXISTS channels TEXT;`);
   console.log('DB ready: table "applications" checked/created');
 }
 ensureTable().catch((err) => console.error('DB init error:', err));
@@ -39,6 +41,9 @@ app.post('/api/contact', async (req, res) => {
   const name = (req.body.name || '').toString().trim().slice(0, 200);
   const contact = (req.body.contact || '').toString().trim().slice(0, 200);
   const message = (req.body.message || '').toString().trim().slice(0, 2000);
+  const channels = Array.isArray(req.body.channels)
+    ? req.body.channels.map(c => c.toString().trim()).filter(Boolean).slice(0, 10)
+    : [];
 
   if (!contact) {
     return res.status(400).json({ ok: false, error: 'contact_required' });
@@ -48,8 +53,8 @@ app.post('/api/contact', async (req, res) => {
   if (pool) {
     try {
       await pool.query(
-        'INSERT INTO applications (name, contact, message) VALUES ($1, $2, $3)',
-        [name || null, contact, message || null]
+        'INSERT INTO applications (name, contact, message, channels) VALUES ($1, $2, $3, $4)',
+        [name || null, contact, message || null, channels.length ? channels.join(', ') : null]
       );
     } catch (err) {
       console.error('DB insert error:', err);
@@ -62,6 +67,7 @@ app.post('/api/contact', async (req, res) => {
       '📩 Новая заявка с сайта ПОЛКА',
       name ? `Имя: ${name}` : null,
       `Контакт: ${contact}`,
+      channels.length ? `Удобный способ связи: ${channels.join(', ')}` : null,
       message ? `Заявка: ${message}` : null,
     ]
       .filter(Boolean)
